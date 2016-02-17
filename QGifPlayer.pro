@@ -16,26 +16,30 @@ CONFIG(debug, debug|release) {
     CONFIG += debug
     DEFINES += DEBUG
     #QMAKE_CXXFLAGS += -O3 #-std=c++11
+    QMAKE_CXXFLAGS += -std=c++11
 }
 else{
     CONFIG -= debug release
     CONFIG += release
     DEFINES += QT_NO_DEBUG_OUTPUT
     #QMAKE_CXXFLAGS += -O3 #-std=c++11
+    QMAKE_CXXFLAGS += -std=c++11
 }
 
 SOURCES += main.cpp\
         widget.cpp \
     libnsgif/libnsgif.c \
     libnsgif/gif.cpp \
-    imageview.cpp
+    imageview.cpp \
+    sdlview.cpp
 
 HEADERS  += widget.h \
     libnsgif/libnsgif.h \
     libnsgif/gif.h \
     logdef.h \
-    imageview.h
+    imageview.h \
+    sdlview.h
 
 FORMS    += widget.ui
 
-LIBS += -lglut -lGLU
+LIBS += -lglut -lGLU -lSDL2 -lSDL2_image

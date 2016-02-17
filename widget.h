@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "libnsgif/gif.h"
 #include "imageview.h"
+#include "sdlview.h"
 
 namespace Ui {
 class Widget;
@@ -23,7 +24,8 @@ private slots:
 private:
     Ui::Widget *ui;
     Gif* _gif;
-    ImageView* _image;
+    //ImageView* _image;
+    SDLView* _image;
 };
 
 #endif // WIDGET_H
