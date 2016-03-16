@@ -66,9 +66,9 @@ bool SDLView::startSDL()
                     //DrawImage(0, 0, _frame_width, _frame_height);
                         if(_frame){
         SDL_Rect dstRect = {0, 0, _frame->w, _frame->h};
-        SDL_BlitSurface(_frame, NULL, _surface, NULL);
+        SDL_BlitSurface(_frame, &dstRect, _surface, &dstRect);
 
-        if (SDL_UpdateWindowSurfaceRects(_win, NULL, 1) != 0){
+        if (SDL_UpdateWindowSurfaceRects(_win, &dstRect, 1) != 0){
             LOGE("SDL Error: %s", SDL_GetError());
         }
     }
@@ -82,6 +82,15 @@ bool SDLView::startSDL()
                 __sdl_done = SDL_TRUE;
             LOGD("SDL_QUIT");
                 break;
+            }
+                                    if(_frame){
+        SDL_Rect dstRect = {0, 0, _frame->w, _frame->h};
+        SDL_BlitSurface(_frame, &dstRect, _surface, &dstRect);
+
+        if (SDL_UpdateWindowSurfaceRects(_win, &dstRect, 1) != 0){
+            LOGE("SDL Error: %s", SDL_GetError());
+        }
+
             }
             }
             }

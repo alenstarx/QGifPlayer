@@ -24,8 +24,8 @@ private slots:
 private:
     Ui::Widget *ui;
     Gif* _gif;
-    //ImageView* _image;
-    SDLView* _image;
+    ImageView* _image;
+    //SDLView* _image;
 };
 
 #endif // WIDGET_H
