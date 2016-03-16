@@ -129,6 +129,7 @@ void ImageView::DrawImage(GLint tex, int x, int y, int w, int h)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho( x * 1.0f, w * 1.0f, h * 1.0f, y * 1.0f, 0.0, 1.f);
+    glViewport(0, 0, w, h); //重置当前的视口
     if(_frame_count){
         glBindTexture(GL_TEXTURE_2D, tex);			// 设置为图像纹理
     }
